@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router';
+import { Links, NavLink } from 'react-router';
 import './Navbar.css'
 import { Link } from 'react-router';
 import logo from '../../assets/logo.jpg'
@@ -21,8 +21,8 @@ const Navbar = () => {
          {links}
       </ul>
     </div>
-     <img src={logo} className='h-20 w-20 ' alt="" />
-    <a className=" text-xl font-extrabold text-sky-800">SkillSwap</a>
+     <img src={logo} className='h-20 w-20 ' alt="" /> 
+    <Link to='/' className=" text-xl font-extrabold text-sky-800">SkillSwap</Link>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
