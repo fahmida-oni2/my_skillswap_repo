@@ -1,9 +1,22 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Links, NavLink } from 'react-router';
 import './Navbar.css'
 import { Link } from 'react-router';
 import logo from '../../assets/logo.jpg'
+import { AuthContext } from '../../Provider/AuthProvider';
 const Navbar = () => {
+  const {user,signOutUser} = use(AuthContext);
+   const handleLogOut =() =>{
+     signOutUser()
+          .then(result => {
+              console.log(result.user)
+              
+            })
+            .catch(error => {
+               console.log(error)
+            })
+    console.log("user trying to logout")
+   }
     const links = <>
     <li><NavLink  to='/' className='m-2'>Home</NavLink></li>
     <li><NavLink to='/skills'  className='m-2'>Skills</NavLink></li>
@@ -11,6 +24,7 @@ const Navbar = () => {
     </>
     return (
        <div className="navbar bg-base-100 shadow-sm">
+        <div>{user && user.email }</div>
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -30,10 +44,13 @@ const Navbar = () => {
      {links}
     </ul>
   </div>
-  <div className="navbar-end grid md:flex lg:flex">
+  {
+    user ? (<button onClick={handleLogOut}  className='btn btn-primary m-2  grid md:flex lg:flex'>LogOut</button>) : (<div className="navbar-end grid md:flex lg:flex">
     <Link to='/auth/login' className='btn btn-primary m-2'>Login</Link>
-    <Link className='btn btn-primary m-2'>Sign Up</Link>
-  </div>
+    <Link to='/auth/register' className='btn btn-primary m-2'>Sign Up</Link>
+  </div>)
+  }
+  
 </div>
     );
 };
