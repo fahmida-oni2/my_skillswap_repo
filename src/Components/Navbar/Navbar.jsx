@@ -31,7 +31,7 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end grid md:flex lg:flex">
-    <Link className='btn btn-primary m-2'>Login</Link>
+    <Link to='/auth/login' className='btn btn-primary m-2'>Login</Link>
     <Link className='btn btn-primary m-2'>Sign Up</Link>
   </div>
 </div>

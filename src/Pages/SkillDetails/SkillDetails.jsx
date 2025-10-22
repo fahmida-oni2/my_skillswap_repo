@@ -13,10 +13,10 @@ const SkillDetails = () => {
      useEffect(() => {
         const checkEnrolledStatus = () => {
             if (!skillId || !skillData) return;
-            const currentData = skillData.find(d => d.id === skillId);
+            const currentData = skillData.find(d => String(d.skillId) === skillId);
             if (!currentData) return;
             const enrolledSkills = JSON.parse(localStorage.getItem('enroll') || '[]');
-            const skillFound = enrolledSkills.some(skill =>skill.id === currentData.id);
+            const skillFound = enrolledSkills.some(skill => String(skill.skillId) === String(currentData.skillId));
             setEnrolled(skillFound);
         };
         checkEnrolledStatus();
@@ -27,29 +27,23 @@ const SkillDetails = () => {
     if (error) {
         return <p>Error loading skill data.</p>
     }
-    const data = skillData.find (d => d.id === skillId)
-    console.log(data)
+   const data = skillData.find (d => String(d.skillId) === String(skillId))
+   console.log(data)
+    
     if (!data) {
         return <ErrorSkill></ErrorSkill>;
     }
     const {skillName,image,providerName,slotsAvailable,rating,description,providerEmail,price,category}=data
-    //  const handleEnrolled = () => {
-    //     const existingApp =JSON.parse(localStorage.getItem('enroll')||'[]')
-    //     let updatedApp = []
-    //     if (existingApp){
-    //         updatedApp = [...existingApp, data]
-    //     }
-    //     else{
-    //         updatedApp.push(data)
-    //     }
-    //     localStorage.setItem('enroll',JSON.stringify(updatedApp))
-    //     setEnrolled(true);
-    //       toast.success(`Enrolled successfully`);
-           
-    // }
 
     const handleBookSession = (e) => {
         e.preventDefault();
+        const existingApp =JSON.parse(localStorage.getItem('enroll')||'[]')
+        const isAlreadyEnrolled = existingApp.some(skill => String(skill.skillId) === skillId);
+        if (!isAlreadyEnrolled) {
+            const updatedApp = [...existingApp, data];
+            localStorage.setItem('enroll', JSON.stringify(updatedApp));
+            setEnrolled(true);
+        }
         toast.success(`Session has been booked for you.`);
         setUserName('');
         setUserEmail('');
@@ -68,7 +62,7 @@ const SkillDetails = () => {
                     <div className='border-b border-solid border-b-gray-300 mt-5'>
 
                     </div>
-                    <div className='flex gap-2 m-5 justify-center items-center'>
+                    <div className='lg:flex gap-2 m-5 justify-center items-center'>
                         <div className='mr-10 flex gap-2 justify-center items-center'>
                             <p className='font-bold text-2xl text-center'>Available Slot:</p>
                             <h1 className='font-extrabold text-2xl text-center'>{slotsAvailable}</h1>
@@ -94,8 +88,8 @@ const SkillDetails = () => {
             </div>
            
     <div className="hero bg-base-200 ">
-  <div className="hero-content flex-col lg:flex-row-reverse">
-    <div className="text-center lg:text-left">
+  <div className="hero-content flex-col lg:flex">
+    <div className="text-center">
       <h1 className="text-3xl font-bold">Book Your Session</h1>
     </div>
     <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
@@ -106,7 +100,7 @@ const SkillDetails = () => {
           <input type="text" className="input" placeholder="Your Name" required value={userName} onChange={(e) => setUserName(e.target.value)}/>
           <label className="label">Email</label>
           <input type="email" className="input" placeholder="Email" value={userEmail} onChange={(e) => setUserEmail(e.target.value)} />
-          <button style={{backgroundColor: isEnrolled ? 'gray' : '#28a745'}} className='btn bg-[#00D390] text-white w-full'  disabled={isEnrolled} > {isEnrolled ? 'Enrolled' : `Enroll Now `}</button>
+          <button type="submit" style={{backgroundColor: isEnrolled ? 'gray' : '#28a745'}} className='btn bg-[#00D390] text-white w-full'  disabled={isEnrolled} > {isEnrolled ? 'Enrolled' : `Enroll Now `}</button>
         </fieldset>
         </form>
       </div>
