@@ -6,7 +6,8 @@ import logo from '../../assets/logo.jpg'
 const Navbar = () => {
     const links = <>
     <li><NavLink  to='/' className='m-2'>Home</NavLink></li>
-    <li><NavLink to='/profile'  className='m-2'>profile</NavLink></li>
+    <li><NavLink to='/skills'  className='m-2'>Skills</NavLink></li>
+    <li><NavLink to='/profile'  className='m-2'>Profile</NavLink></li>
     </>
     return (
        <div className="navbar bg-base-100 shadow-sm">

@@ -1,0 +1,122 @@
+[
+  {
+    "skillId": 1,
+    "skillName": "Introduction to Python Programming",
+    "providerName": "Sarah Connor",
+    "providerEmail": "sarah.c@techskills.net",
+    "price": 45,
+    "rating": 4.9,
+    "slotsAvailable": 5,
+    "description": "Learn the basics of Python, variables, loops, and functions for beginners.",
+    "image": "https://i.postimg.cc/1t9KsZLH/python.avif",
+    "category": "Technology"
+  },
+  {
+    "skillId": 2,
+    "skillName": "Guitar lessons",
+    "providerName": "David Lee",
+    "providerEmail": "davidleeart@studio.com",
+    "price": 30,
+    "rating": 4.5,
+    "slotsAvailable": 2,
+    "description": "Advance your watercolour skills with techniques like layering and wet-on-wet.",
+    "image": "https://i.postimg.cc/cL6xkDXs/guiterjpg.jpg",
+    "category": "Arts"
+  },
+  {
+    "skillId": 3,
+    "skillName": "Yoga for Stress Relief",
+    "providerName": "Maya Sharma",
+    "providerEmail": "maya.yoga@wellbeing.org",
+    "price": 15,
+    "rating": 4.7,
+    "slotsAvailable": 8,
+    "description": "Gentle Hatha yoga focused on breathing and postures to reduce stress.",
+    "image": "https://i.postimg.cc/Vs9dXC0T/yoga.jpg",
+    "category": "Health & Fitness"
+  },
+  {
+    "skillId": 4,
+    "skillName": "Spanish Conversation Practice (B1 Level)",
+    "providerName": "Javier Gomez",
+    "providerEmail": "javier.g@lingua.es",
+    "price": 25,
+    "rating": 4.6,
+    "slotsAvailable": 4,
+    "description": "Practice conversational Spanish for intermediate learners to boost fluency.",
+    "image": "https://i.postimg.cc/qBmdfJP4/spanish-conversation-practice.png",
+    "category": "Languages"
+  },
+  {
+    "skillId": 5,
+    "skillName": "DIY Home Repair Basics",
+    "providerName": "Mike 'The Fixer' Johnson",
+    "providerEmail": "mike.fixit@handy.com",
+    "price": 50,
+    "rating": 4.8,
+    "slotsAvailable": 3,
+    "description": "Learn essential skills for minor home repairs, plumbing, and electrical fixes.",
+    "image": "https://i.postimg.cc/rpqhFW4Z/diy-home.jpg",
+    "category": "Home & Garden"
+  },
+  {
+    "skillId": 6,
+    "skillName": "Photography Composition Workshop",
+    "providerName": "Chloe Chen",
+    "providerEmail": "chloe.photo@gallery.net",
+    "price": 35,
+    "rating": 4.9,
+    "slotsAvailable": 6,
+    "description": "Master the rules of composition to take stunning and balanced photographs.",
+    "image": "https://i.postimg.cc/RVr2xWPC/photography.jpg",
+    "category": "Arts"
+  },
+  {
+    "skillId": 7,
+    "skillName": "Advanced Excel for Data Analysis",
+    "providerName": "Raj Patel",
+    "providerEmail": "raj.data@corptech.in",
+    "price": 60,
+    "rating": 4.4,
+    "slotsAvailable": 1,
+    "description": "Deep dive into Pivot Tables, VLOOKUP, and advanced formulas for data reporting.",
+    "image": "https://i.postimg.cc/1zLrVqnd/excel.jpg",
+    "category": "Technology"
+  },
+  {
+    "skillId": 8,
+    "skillName": "Effective Public Speaking",
+    "providerName": "Marcus Jones",
+    "providerEmail": "marcus.j@commcoach.net",
+    "price": 75,
+    "rating": 4.7,
+    "slotsAvailable": 5,
+    "description": "Overcome fear and deliver impactful presentations with confidence.",
+    "image": "https://i.postimg.cc/wBh7Fyb7/public-speaking.jpg",
+    "category": "Business & Career"
+  },
+  {
+    "skillId": 9,
+    "skillName": "Japanese Calligraphy (Shodo)",
+    "providerName": "Kenji Tanaka",
+    "providerEmail": "kenji.shodo@artisan.jp",
+    "price": 30,
+    "rating": 4.6,
+    "slotsAvailable": 4,
+    "description": "An introduction to the ancient art of Japanese brush writing.",
+    "image": "https://i.postimg.cc/G2X3SkFX/Japanese-Calligraphy.jpg",
+    "category": "Arts"
+  },
+  {
+    "skillId": 10,
+    "skillName": "Introduction to Web Development (HTML/CSS)",
+    "providerName": "Chris Bailey",
+    "providerEmail": "chris.b@devschool.com",
+    "price": 55,
+    "rating": 4.5,
+    "slotsAvailable": 3,
+    "description": "Build your first website with foundational knowledge of HTML and CSS.",
+    "image": "https://i.postimg.cc/hjZg0KnH/Introduction-to-Web-Development.png",
+    "category": "Technology"
+  }
+]
