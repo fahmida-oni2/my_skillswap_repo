@@ -46,6 +46,7 @@ const Navbar = () => {
   </div>
   {
     user ? (<button onClick={handleLogOut}  className='btn btn-primary m-2  grid md:flex lg:flex'>LogOut</button>) : (<div className="navbar-end grid md:flex lg:flex">
+           <img src={logo} className='h-20 w-20 ' alt="" /> 
     <Link to='/auth/login' className='btn btn-primary m-2'>Login</Link>
     <Link to='/auth/register' className='btn btn-primary m-2'>Sign Up</Link>
   </div>)

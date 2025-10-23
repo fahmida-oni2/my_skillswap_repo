@@ -8,6 +8,7 @@ import SkillDetails from "../Pages/SkillDetails/SkillDetails";
 import Login from "../Components/Login/Login";
 import Register from "../Components/Register/Register";
 import AuthLayouts from "../Components/AuthLayouts/AuthLayouts";
+import PrivateRoutes from "./PrivateRoutes";
 
 export const router = createBrowserRouter([
   {
@@ -26,11 +27,16 @@ export const router = createBrowserRouter([
         },
         {
             path:'/profile',
-            Component:Profile
+            element: <PrivateRoutes>
+              <Profile></Profile>
+            </PrivateRoutes>
+            
         },
          {
             path:'/skills/:id',
-           element: <SkillDetails></SkillDetails>
+           element: <PrivateRoutes>
+            <SkillDetails></SkillDetails>
+           </PrivateRoutes>
         },
 
 
