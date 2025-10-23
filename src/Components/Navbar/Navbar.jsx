@@ -3,6 +3,7 @@ import { Links, NavLink } from 'react-router';
 import './Navbar.css'
 import { Link } from 'react-router';
 import logo from '../../assets/logo.jpg'
+import userIcon from '../../assets/user.png'
 import { AuthContext } from '../../Provider/AuthProvider';
 const Navbar = () => {
   const {user,signOutUser} = use(AuthContext);
@@ -44,14 +45,16 @@ const Navbar = () => {
      {links}
     </ul>
   </div>
+  <div className='login-btn flex gap-3 ml-20'>
+  <img src={`${user ? user.photoURL : userIcon}`} className='h-15 w-15 mr-3 rounded-full ' alt="" /> 
   {
     user ? (<button onClick={handleLogOut}  className='btn btn-primary m-2  grid md:flex lg:flex'>LogOut</button>) : (<div className="navbar-end grid md:flex lg:flex">
-           <img src={logo} className='h-20 w-20 ' alt="" /> 
-    <Link to='/auth/login' className='btn btn-primary m-2'>Login</Link>
+    <Link to='/auth/login' className='btn btn-primary m-2 ml-10'>Login</Link>
     <Link to='/auth/register' className='btn btn-primary m-2'>Sign Up</Link>
   </div>)
   }
   
+  </div>
 </div>
     );
 };

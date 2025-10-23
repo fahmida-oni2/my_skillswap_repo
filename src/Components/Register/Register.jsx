@@ -1,10 +1,11 @@
 import React, { use, useState } from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { toast, ToastContainer } from 'react-toastify';
 
 const Register = () => {
-    const {createUser,setUser} =use(AuthContext)
+    const {createUser,setUser,updateUser} =use(AuthContext)
+    const navigate = useNavigate();
     const handleRegister = (e) => {
        e.preventDefault();
        console.log(e.target)
@@ -24,7 +25,16 @@ const Register = () => {
             const user = result.user;
             console.log(user)
             toast.success('SignUp Successfully')
-            setUser(user)
+            updateUser({displayName:name, photoURL: photo})
+            .then(()=>{
+               setUser({...user,displayName:name, photoURL: photo})
+              
+            })
+            .catch((error)=> {
+              console.log(error)
+              setUser(user)
+            })
+             navigate("/")
             
           } )
           .catch((error) => {
