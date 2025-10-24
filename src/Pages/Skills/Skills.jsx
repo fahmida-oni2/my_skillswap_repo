@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import useSkillData from '../../Hooks/useSkillData';
-import Spinner from '../../Components/Spinner/Spinner';
 import ErrorSkill from '../../Components/ErrorSkill/ErrorSkill';
 import Card from '../../Components/Card/Card';
+import Loading from '../../Components/Loading/Loading';
 
 const Skills = () => {
     const {skillData} = useSkillData()
@@ -49,7 +49,7 @@ const showNoResult = filteredSkills.length === 0 && search.trim().length > 0;
            </div>
            {loading ? (
         <div className='flex justify-center items-center p-20'>
-          <Spinner></Spinner>
+          <Loading></Loading>
         </div>
       ) : showNoResult ? (
                 <div className='flex items-center justify-center p-20'>

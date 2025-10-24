@@ -1,9 +1,9 @@
 import React, { use, useState } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../../Provider/AuthProvider';
-import { toast, ToastContainer } from 'react-toastify';
 import { FaEye } from 'react-icons/fa';
 import { IoEyeOff } from 'react-icons/io5';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Register = () => {
   const [show,setShow]= useState(false)
@@ -11,13 +11,13 @@ const Register = () => {
     const navigate = useNavigate();
     const handleRegister = (e) => {
        e.preventDefault();
-       console.log(e.target)
+      //  console.log(e.target)
        const form = e.target;
        const name = form.name.value;
         const email = form.email.value;
          const photo = form.photo.value;
           const password = form.password.value;
-          console.log(email,name,photo,password)
+          // console.log(email,name,photo,password)
           const regExp = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
           if(!regExp.test(password)){
             toast.error("Your password must be at least 6 characters long and contain at least one uppercase letter and at least one lowercase letter. Please ensure your password meets all these requirements before submitting.");
@@ -26,7 +26,7 @@ const Register = () => {
           createUser(email,password)
           .then(result=>{
             const user = result.user;
-            console.log(user)
+            // console.log(user)
             toast.success('SignUp Successfully')
             updateUser({displayName:name, photoURL: photo})
             .then(()=>{
@@ -34,7 +34,7 @@ const Register = () => {
               
             })
             .catch((error)=> {
-              console.log(error)
+              // console.log(error)
               setUser(user)
             })
              navigate("/")
@@ -42,17 +42,17 @@ const Register = () => {
           } )
           .catch((error) => {
             const errorMessage = error.message;
-    alert(errorMessage)
+    toast(errorMessage)
     });
     };
         const handleGoogleSignIn = () =>{
           signInWihGoogle()
             .then(result => {
-              console.log(result.user)
+              // console.log(result.user)
              navigate(location.state || '/')
             })
             .catch(error => {
-               console.log(error)
+              //  console.log(error)
             })
     }
     return (
@@ -86,7 +86,7 @@ const Register = () => {
           <p className='mt-3 mb-5 font-semibold text-center'>Already have an account? <Link to='/auth/login' className='text-blue-600'>Login</Link></p>
     </div>
   </div>
-  <ToastContainer></ToastContainer>
+  <Toaster></Toaster>
 </div>
     );
     

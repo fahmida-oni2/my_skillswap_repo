@@ -9,13 +9,14 @@ import Login from "../Components/Login/Login";
 import Register from "../Components/Register/Register";
 import AuthLayouts from "../Components/AuthLayouts/AuthLayouts";
 import PrivateRoutes from "./PrivateRoutes";
+import Loading from "../Components/Loading/Loading";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     Component: Root,
     errorElement:<ErrorPage></ErrorPage>,
-    hydrateFallbackElement: <p>loading.....</p>,
+    hydrateFallbackElement: <Loading></Loading>,
     children:[
         {
             index: true,
@@ -33,7 +34,7 @@ export const router = createBrowserRouter([
             
         },
          {
-            path:'/skills/:id',
+            path:'/skills/:skillId',
            element: <PrivateRoutes>
             <SkillDetails></SkillDetails>
            </PrivateRoutes>

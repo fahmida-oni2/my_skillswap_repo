@@ -1,23 +1,29 @@
-import React, { use, useState } from 'react';
+import React, { use, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../Provider/AuthProvider';
+import { FaEye } from 'react-icons/fa';
+import { IoEyeOff } from 'react-icons/io5';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Login = () => {
+   const [show,setShow]= useState(false)
   const [error,setError]=useState("");
-    const {signIn,setUser,signInWihGoogle} = use(AuthContext)
+    const emailRef = useRef(null);
+    const {signIn,signInWihGoogle,forgotPassword} = use(AuthContext)
     const location =useLocation();
     const navigate = useNavigate();
     const handleLogin =(e)=>{
        e.preventDefault();
-       console.log(e.target)
+      //  console.log(e.target)
        const form = e.target;
         const email = form.email.value;
           const password = form.password.value;
-          console.log(email,password) 
+          // console.log(email,password) 
           signIn(email,password)
           .then(result=>{
             const user = result.user;
-            console.log(user)
+            // console.log(user)
+            toast.success('Logged in successfully')
             navigate (`${location.state? location.state :'/'}`)
            
             
@@ -25,18 +31,33 @@ const Login = () => {
           .catch((error) => {
             const errorcode = error.code ;
             setError(errorcode);
+            toast.error('error')
     });
     };
 
      const handleGoogleSignIn = () =>{
           signInWihGoogle()
             .then(result => {
-              console.log(result.user)
+               toast.success('Logged in successfully')
              navigate(location.state || '/')
+             
             })
             .catch(error => {
-               console.log(error)
+               toast.error('error')
             })
+    }
+    const handleForgotPassword=(e)=>{
+      e.preventDefault();
+      // console.log(emailRef.current.value)
+      const email = emailRef.current.value
+      forgotPassword(email)
+       .then(result => {
+             toast.success('check your email')
+            })
+            .catch(error => {
+              toast.error('error')
+            })
+
     }
     return (
        <div className="hero bg-base-200 min-h-screen">
@@ -48,10 +69,17 @@ const Login = () => {
       <form onSubmit={handleLogin} className="card-body">
         <fieldset className="fieldset">
           <label className="label">Email</label>
-          <input name='email' type="email" className="input" placeholder="Email" required />
+          <input name='email' type="email" ref={emailRef} className="input" placeholder="Email" required />
+        <div className='relative'>
           <label className="label">Password</label>
-          <input name='password' type="password" className="input" placeholder="Password" required/>
-          <div><a className="link link-hover">Forgot password?</a></div>
+          <input  name='password' type={show?"text" :"password"}  className="input" placeholder="Password"  required />
+          <span onClick={()=> setShow(!show)} className='absolute right-2 top-8  cursor-pointer z-50 '>{show ? <FaEye className='w-10 h-4'></FaEye> :<IoEyeOff className='w-10 h-4'></IoEyeOff> }</span>
+           </div>
+             <div>
+               <button onClick={ handleForgotPassword} type='submit' className="link link-hover text-sm" >
+                 Forgot password?
+                </button>
+    </div>
           {
             error && <p className='text-red-400 text-xs'>{error}</p>
           }
@@ -67,7 +95,9 @@ const Login = () => {
           <p className='mt-3 font-semibold text-center'>Don't have account? <Link to='/auth/register' className='text-blue-600'>Register</Link></p>
     </div>
   </div>
+  <Toaster></Toaster>
 </div>
+  
     );
 };
 

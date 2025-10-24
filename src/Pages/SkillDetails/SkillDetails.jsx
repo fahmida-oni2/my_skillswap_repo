@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import useSkillData from '../../Hooks/useSkillData';
 import ErrorSkill from '../../Components/ErrorSkill/ErrorSkill';
-import { toast, ToastContainer } from 'react-toastify';
+import toast, { Toaster } from 'react-hot-toast';
+import Loading from '../../Components/Loading/Loading';
 
 const SkillDetails = () => {
     const {skillId} = useParams()
     const {skillData,loading,error} = useSkillData()
-    const [userName, setUserName] = useState('');
+     const [userName, setUserName] = useState('');
     const [userEmail, setUserEmail] = useState('');
     const [isEnrolled, setEnrolled] = useState(false);
      useEffect(() => {
@@ -21,14 +22,16 @@ const SkillDetails = () => {
         };
         checkEnrolledStatus();
     }, [skillId, skillData]);
+
+    
      if (loading) {
-        return <p>Loading......</p>
+        return <Loading></Loading>
     }
     if (error) {
         return <p>Error loading skill data.</p>
     }
-   const data = skillData.find (d => String(d.skillId) === String(skillId))
-   console.log(data)
+const data = skillData.find(d => String(d.skillId) === String(skillId));
+  //  console.log(data)
     
     if (!data) {
         return <ErrorSkill></ErrorSkill>;
@@ -48,6 +51,7 @@ const SkillDetails = () => {
         setUserName('');
         setUserEmail('');
     }
+
     return ( 
         <div className='flex flex-col min-h-screen bg-base-200'>
             <section>
@@ -86,8 +90,9 @@ const SkillDetails = () => {
             </div>
             <div className='border-b-2 border-solid border-b-gray-400 mb-5 ml-7 mr-7'>
             </div>
-           
-    <div className="hero bg-base-200 ">
+
+
+           <div className="hero bg-base-200 ">
   <div className="hero-content flex-col lg:flex">
     <div className="text-center">
       <h1 className="text-3xl font-bold">Book Your Session</h1>
@@ -100,16 +105,17 @@ const SkillDetails = () => {
           <input type="text" className="input" placeholder="Your Name" required value={userName} onChange={(e) => setUserName(e.target.value)}/>
           <label className="label">Email</label>
           <input type="email" className="input" placeholder="Email" value={userEmail} onChange={(e) => setUserEmail(e.target.value)} />
-          <button type="submit" style={{backgroundColor: isEnrolled ? 'gray' : '#28a745'}} className='btn bg-[#00D390] text-white w-full'  disabled={isEnrolled} > {isEnrolled ? 'Enrolled' : `Enroll Now `}</button>
+          <button  type="submit" style={{backgroundColor: isEnrolled ? 'gray' : '#28a745'}} className='btn bg-[#00D390] text-white w-full'  disabled={isEnrolled} > {isEnrolled ? 'Enrolled' : `Enroll Now `}</button>
         </fieldset>
         </form>
       </div>
     </div>
   </div>
 </div>
-            </section>
 
-               <ToastContainer />
+   
+            </section>
+               <Toaster></Toaster>
         </div>
     );
 };
