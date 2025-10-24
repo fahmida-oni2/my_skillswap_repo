@@ -57,9 +57,8 @@ const Home = () => {
                    categories.length > 0 ? (
                     categories.map((category, index) => (
                       <li key={index} className='text-2xl  hover:text-blue-600 transition-colors'>
-                        <Link to={`/skills?category=${category}`} className='block'> 
-                          {category} {category.skillId}
-                        </Link>
+                        <Link to={`/skills?category=${category}`} className='block'>
+                        {category}</Link>
                       </li>
                     ))
                   ) : (

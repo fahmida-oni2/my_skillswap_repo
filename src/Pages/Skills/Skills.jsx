@@ -3,32 +3,41 @@ import useSkillData from '../../Hooks/useSkillData';
 import ErrorSkill from '../../Components/ErrorSkill/ErrorSkill';
 import Card from '../../Components/Card/Card';
 import Loading from '../../Components/Loading/Loading';
+import { useLocation } from 'react-router';
 
 const Skills = () => {
     const {skillData} = useSkillData()
     const [search, setSearch] = useState('')
      const [loading, setLoading] = useState(false); 
   const [filteredSkills, setFilteredSkills] = useState([]);
-  useEffect(() => {
-        if (skillData && skillData.length > 0) {
-            setFilteredSkills(skillData);
-        }
-    }, [skillData]);
+   const location = useLocation();
+  let category = null;
 
-    useEffect(() => {
-    const term = search.trim().toLocaleLowerCase()
-     setLoading(true);
-      const timer = setTimeout(() => {
-      const results = term
-        ? skillData.filter(app => app.skillName.toLowerCase().includes(term))
+  // Extract category using includes + split
+  if (location.search.includes('category=')) {
+    category = location.search.split('category=')[1];
+  }
+  useEffect(() => {
+    if (!skillData.length) return;
+    setLoading(true);
+
+    const timer = setTimeout(() => {
+      const baseData = category
+        ? skillData.filter(skill => skill.category === category)
         : skillData;
+
+      const results = search.trim()
+        ? baseData.filter(skill =>
+            skill.skillName.toLowerCase().includes(search.toLowerCase())
+          )
+        : baseData;
 
       setFilteredSkills(results);
       setLoading(false);
-    }, 500); 
+    }, 400);
 
     return () => clearTimeout(timer);
-  }, [search, skillData]);
+  }, [skillData, search, category]);
 
 const showNoResult = filteredSkills.length === 0 && search.trim().length > 0;
 

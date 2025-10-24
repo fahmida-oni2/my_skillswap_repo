@@ -1,16 +1,18 @@
 import React, { use } from 'react';
-import { Links, NavLink } from 'react-router';
+import { Links, NavLink} from 'react-router';
 import './Navbar.css'
 import { Link } from 'react-router';
 import logo from '../../assets/logo.jpg'
 import userIcon from '../../assets/user.png'
 import { AuthContext } from '../../Provider/AuthProvider';
+import toast, { Toaster } from 'react-hot-toast';
 const Navbar = () => {
   const {user,signOutUser} = use(AuthContext);
    const handleLogOut =() =>{
      signOutUser()
           .then(result => {
               // console.log(result.user)
+            toast.success('SignOut successfully')
               
             })
             .catch(error => {
@@ -36,7 +38,7 @@ const Navbar = () => {
          {links}
       </ul>
     </div>
-     <img src={logo} className='h-20 w-20 ' alt="" /> 
+     <img src={logo} className='h-12 w-12 ' alt="" /> 
     <Link to='/' className=" text-xl font-extrabold text-sky-800">SkillSwap</Link>
   </div>
   <div className="navbar-center hidden lg:flex">
@@ -56,6 +58,7 @@ const Navbar = () => {
   }
   
   </div>
+  <Toaster></Toaster>
 </div>
     );
 };

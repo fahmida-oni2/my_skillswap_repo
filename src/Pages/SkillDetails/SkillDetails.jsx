@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { Link, useParams } from 'react-router';
 import useSkillData from '../../Hooks/useSkillData';
 import ErrorSkill from '../../Components/ErrorSkill/ErrorSkill';
 import toast, { Toaster } from 'react-hot-toast';
@@ -87,7 +87,11 @@ const data = skillData.find(d => String(d.skillId) === String(skillId));
                         </div>
                     
                 </div>
+              
             </div>
+            <div className='flex justify-center items-center mb-5'>
+                  <Link to='/skills' className='btn rounded-xl text-white bg-gradient-to-r from-[#632EE3] to-[#9F62F2] w-50'>Go Back</Link>
+              </div>
             <div className='border-b-2 border-solid border-b-gray-400 mb-5 ml-7 mr-7'>
             </div>
 
