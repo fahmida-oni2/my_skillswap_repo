@@ -4,7 +4,7 @@ import ErrorSkill from '../../Components/ErrorSkill/ErrorSkill';
 import Card from '../../Components/Card/Card';
 import Loading from '../../Components/Loading/Loading';
 import { useLocation } from 'react-router';
-
+import "animate.css";
 const Skills = () => {
     const {skillData} = useSkillData()
     const [search, setSearch] = useState('')
@@ -13,7 +13,6 @@ const Skills = () => {
    const location = useLocation();
   let category = null;
 
-  // Extract category using includes + split
   if (location.search.includes('category=')) {
     category = location.search.split('category=')[1];
   }
@@ -44,11 +43,11 @@ const showNoResult = filteredSkills.length === 0 && search.trim().length > 0;
     return (
         <div className='flex flex-col min-h-screen'>
             <div className='pt-10'>
-                    <h1 className='text-[#001931] text-3xl font-bold text-center py-2'>Our All Offered Skills</h1>
-                    <p className='text-[#627382] text-center'>Explore All Skills </p>
+                    <h1 className='text-4xl mt-10 text-center text-sky-800  font-bold mb-4 animate__animated animate__fadeInDown'>Our All Offered Skills</h1>
+                    <p className='text-[#627382] text-center italic'>Explore All Skills </p>
          </div>
            <div className='lg:flex justify-between items-center mt-5 pl-5 pr-5 mb-5 '>
-             <div className='font-bold text-2xl pb-5 lg:pb-0'> 
+             <div className='font-bold text-2xl text-sky-800 pb-5 lg:pb-0'> 
                 ({filteredSkills.length}) Skills Found
             </div>
                 <label className="input gap-0">
@@ -65,7 +64,7 @@ const showNoResult = filteredSkills.length === 0 && search.trim().length > 0;
                     <ErrorSkill searchTerm={search}></ErrorSkill>
                 </div>
             ) : (
-           <div  className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+           <div  className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
                     {
                     filteredSkills.map(data => (
                         <Card key={data.skillId} data={data}></Card>

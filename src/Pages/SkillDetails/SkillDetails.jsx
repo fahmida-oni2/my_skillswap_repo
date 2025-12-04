@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router';
 import useSkillData from '../../Hooks/useSkillData';
 import ErrorSkill from '../../Components/ErrorSkill/ErrorSkill';
 import toast, { Toaster } from 'react-hot-toast';
 import Loading from '../../Components/Loading/Loading';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const SkillDetails = () => {
     const {skillId} = useParams()
+    const {user} = use(AuthContext)
     const {skillData,loading,error} = useSkillData()
      const [userName, setUserName] = useState('');
     const [userEmail, setUserEmail] = useState('');
@@ -36,7 +38,7 @@ const data = skillData.find(d => String(d.skillId) === String(skillId));
     if (!data) {
         return <ErrorSkill></ErrorSkill>;
     }
-    const {skillName,image,providerName,slotsAvailable,rating,description,providerEmail,price,category}=data
+    const {skillName,image,providerName,slotsAvailable,rating,longDescription,providerEmail,price,category}=data
 
     const handleBookSession = (e) => {
         e.preventDefault();
@@ -57,11 +59,13 @@ const data = skillData.find(d => String(d.skillId) === String(skillId));
             <section>
                 <div className='lg:flex grid grid-cols-1 gap-5 m-10  items-center  '>
                 <div className=' mr-10'>
-                    <img className='lg:w-full md:w-[200px] w-[250px] mx-auto lg:object-cover shadow-xl  border-gray-500   ' src={image} alt="" />
+                    <img className='lg:w-400 md:w-[200px] w-[250px] mx-auto lg:object-cover shadow-xl  border-gray-500   ' src={image} alt="" />
                 </div>
                 <div className='space-y-3 p-5'> 
                     <h1 className='font-extrabold text-3xl text-center'>{skillName}</h1>
-                    <p className='font-bold text-2xl text-center'>{category} Developed by <span className='text-[#632EE3]'>{providerName}</span></p>
+                    <p className='font-bold text-2xl text-center'>{category} </p>
+                        <p className='font-bold text-2xl text-center'>Developed by <span className='text-[#632EE3]'>{providerName}</span>
+                            </p> 
                     <p className='font-bold text-2xl text-center'>Contact Email:<span className='text-[#632EE3]'>{providerEmail}</span></p>
                     <div className='border-b border-solid border-b-gray-300 mt-5'>
 
@@ -83,25 +87,30 @@ const data = skillData.find(d => String(d.skillId) === String(skillId));
                     </div>
                      <div className='mr-10'>
                             <p className='font-bold text-center text-3xl mb-3 border-b-2 border-solid border-b-gray-400'>Description</p>
-                            <h1  className='font-extrabold text-2xl text-center'>{description}</h1>
+                            <h1  className='font-semibold text-2xl text-center italic'>{longDescription}</h1>
                         </div>
                     
                 </div>
               
             </div>
             <div className='flex justify-center items-center mb-5'>
-                  <Link to='/skills' className='btn rounded-xl text-white bg-gradient-to-r from-[#632EE3] to-[#9F62F2] w-50'>Go Back</Link>
+                  <Link to='/skills' className='btn rounded-2xl text-white bg-sky-800 w-50'>Go Back</Link>
               </div>
             <div className='border-b-2 border-solid border-b-gray-400 mb-5 ml-7 mr-7'>
             </div>
 
 
-           <div className="hero bg-base-200 ">
-  <div className="hero-content flex-col lg:flex">
+ <div className="hero bg-base-200 "></div>   
+
+    {
+        user && <>
+               
+ <div className='flex justify-center'>
+     <div className="hero-content flex-col lg:flex">
     <div className="text-center">
-      <h1 className="text-3xl font-bold">Book Your Session</h1>
+      <h1 className="text-3xl font-bold text-sky-800">Book Your Session</h1>
     </div>
-    <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
       <div className="card-body">
         <form onSubmit={handleBookSession}>
             <fieldset className="fieldset">
@@ -109,13 +118,18 @@ const data = skillData.find(d => String(d.skillId) === String(skillId));
           <input type="text" className="input" placeholder="Your Name" required value={userName} onChange={(e) => setUserName(e.target.value)}/>
           <label className="label">Email</label>
           <input type="email" className="input" placeholder="Email" value={userEmail} onChange={(e) => setUserEmail(e.target.value)} />
-          <button  type="submit" style={{backgroundColor: isEnrolled ? 'gray' : '#28a745'}} className='btn bg-[#00D390] text-white w-full'  disabled={isEnrolled} > {isEnrolled ? 'Enrolled' : `Enroll Now `}</button>
+          <button  type="submit" style={{backgroundColor: isEnrolled ? 'gray' : 'primary'}} className='btn bg-sky-800 rounded-2xl text-white w-full'  disabled={isEnrolled} > {isEnrolled ? 'Enrolled' : `Enroll Now `}</button>
         </fieldset>
         </form>
       </div>
     </div>
-  </div>
-</div>
+      </div>
+ </div>
+        </>
+    }
+   
+
+
 
    
             </section>

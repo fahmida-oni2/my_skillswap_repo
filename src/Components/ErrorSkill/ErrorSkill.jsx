@@ -8,7 +8,7 @@ const ErrorSkill = () => {
             <h1 className='text-center font-extrabold text-4xl text-[#001931]'>OPPS!! Skills NOT FOUND</h1>
             <p className='text-center  text-[#001931]'>The Skill you are requesting is not found on our system.  please try another skills</p>
             <div className='flex items-center justify-center'>
-             <Link to='/' className='btn rounded-xl text-white bg-gradient-to-r from-[#632EE3] to-[#9F62F2]'>Go Back!</Link>
+             <Link to='/' className='btn rounded-2xl text-white bg-sky-800'>Go Back!</Link>
             </div>
         </div>
     );

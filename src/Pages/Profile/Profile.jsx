@@ -81,7 +81,7 @@ toast.success('Skill has been removed from your enrolled list.');
                     <div className='flex items-center justify-center'>
                         <button 
                             onClick={() => setIsUpdating(true)} 
-                            className="btn btn-primary"
+                            className="btn bg-sky-800 text-white rounded-2xl"
                         >
                             Update your profile
                         </button>
@@ -169,7 +169,7 @@ toast.success('Skill has been removed from your enrolled list.');
                 <div className="flex items-center pr-5">
                   <button
                     onClick={() => handleRemove(s.skillId)}
-                    className="btn bg-[#00D390] text-white"
+                    className="btn bg-sky-800 rounded-2xl text-white"
                   >
                     Unenroll
                   </button>

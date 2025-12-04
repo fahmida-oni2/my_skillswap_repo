@@ -10,6 +10,9 @@ import Register from "../Components/Register/Register";
 import AuthLayouts from "../Components/AuthLayouts/AuthLayouts";
 import PrivateRoutes from "./PrivateRoutes";
 import Loading from "../Components/Loading/Loading";
+import AboutUs from "../Pages/AboutUs/AboutUs";
+import Contact from "../Pages/Contact/Contact";
+import Support from "../Pages/Support/Support";
 
 export const router = createBrowserRouter([
   {
@@ -35,10 +38,22 @@ export const router = createBrowserRouter([
         },
          {
             path:'/skills/:skillId',
-           element: <PrivateRoutes>
+           element: 
             <SkillDetails></SkillDetails>
-           </PrivateRoutes>
+          
         },
+         {
+            path:'/about-us',
+            element:<AboutUs></AboutUs>,
+        },
+         {
+            path:'/contact',
+            element:<Contact></Contact>,
+        },
+         {
+            path:'/support',
+            element:<Support></Support>,
+        }
 
 
           ]

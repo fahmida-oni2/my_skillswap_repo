@@ -7,7 +7,8 @@
     "price": 45,
     "rating": 4.9,
     "slotsAvailable": 5,
-    "description": "Learn the basics of Python, variables, loops, and functions for beginners.",
+    "shortDescription": "Learn the basics of Python, variables, loops, and functions for beginners.",
+    "longDescription": "This comprehensive beginner's course is your first step into the world of programming with Python. We'll cover fundamental concepts like data types, control flow (if/else statements and loops), writing custom functions, and using basic data structures (lists, dictionaries). No prior coding experience is required. By the end of this course, you will be able to write simple, working Python scripts.",
     "image": "https://i.postimg.cc/1t9KsZLH/python.avif",
     "category": "Technology"
   },
@@ -19,7 +20,8 @@
     "price": 30,
     "rating": 4.5,
     "slotsAvailable": 2,
-    "description": "Advance your watercolour skills with techniques like layering and wet-on-wet.",
+    "shortDescription": "Advance your watercolour skills with techniques like layering and wet-on-wet.",
+    "longDescription": "This course is designed for intermediate guitar players looking to expand their repertoire and technical skills. Focus areas include advanced chord voicings, scale theory, improvisation techniques in various styles (blues, rock, jazz), and fingerpicking patterns. Please note: The original short description appears to be for watercolour. I have adjusted the long description to fit 'Guitar lessons'.",
     "image": "https://i.postimg.cc/cL6xkDXs/guiterjpg.jpg",
     "category": "Arts"
   },
@@ -31,7 +33,8 @@
     "price": 15,
     "rating": 4.7,
     "slotsAvailable": 8,
-    "description": "Gentle Hatha yoga focused on breathing and postures to reduce stress.",
+    "shortDescription": "Gentle Hatha yoga focused on breathing and postures to reduce stress.",
+    "longDescription": "A restorative session focusing on **Hatha yoga** principles, emphasizing gentle stretching, mindful movement, and deep **pranayama** (breathing techniques). This class is perfect for all levels and is specifically structured to calm the nervous system, release muscle tension, and promote mental clarity, helping you manage daily stress effectively.",
     "image": "https://i.postimg.cc/Vs9dXC0T/yoga.jpg",
     "category": "Health & Fitness"
   },
@@ -43,7 +46,8 @@
     "price": 25,
     "rating": 4.6,
     "slotsAvailable": 4,
-    "description": "Practice conversational Spanish for intermediate learners to boost fluency.",
+    "shortDescription": "Practice conversational Spanish for intermediate learners to boost fluency.",
+    "longDescription": "Join lively, guided conversation sessions designed specifically for **B1 (Intermediate)** level Spanish speakers. We'll explore various topics, engage in role-playing, and correct common grammatical and pronunciation errors in a supportive environment. The goal is to maximize your speaking time and help you transition from understanding Spanish to confidently speaking it.",
     "image": "https://i.postimg.cc/qBmdfJP4/spanish-conversation-practice.png",
     "category": "Languages"
   },
@@ -55,7 +59,8 @@
     "price": 50,
     "rating": 4.8,
     "slotsAvailable": 3,
-    "description": "Learn essential skills for minor home repairs, plumbing, and electrical fixes.",
+    "shortDescription": "Learn essential skills for minor home repairs, plumbing, and electrical fixes.",
+    "longDescription": "Empower yourself to handle common household problems! This hands-on workshop covers basic troubleshooting and repair for simple plumbing leaks, changing light fixtures and switches, patch drywall, and proper use of essential tools. Save money and gain confidence by learning to manage minor home maintenance tasks yourself.",
     "image": "https://i.postimg.cc/rpqhFW4Z/diy-home.jpg",
     "category": "Home & Garden"
   },
@@ -67,7 +72,8 @@
     "price": 35,
     "rating": 4.9,
     "slotsAvailable": 6,
-    "description": "Master the rules of composition to take stunning and balanced photographs.",
+    "shortDescription": "Master the rules of composition to take stunning and balanced photographs.",
+    "longDescription": "Move beyond snapshots! This intensive workshop focuses on the artistic principles behind compelling photographs, including the **Rule of Thirds**, leading lines, symmetry, framing, and negative space. You'll learn to see light and subject matter differently and intentionally arrange elements in your frame to create visually impactful and professional-quality images.",
     "image": "https://i.postimg.cc/RVr2xWPC/photography.jpg",
     "category": "Arts"
   },
@@ -79,7 +85,8 @@
     "price": 60,
     "rating": 4.4,
     "slotsAvailable": 1,
-    "description": "Deep dive into Pivot Tables, VLOOKUP, and advanced formulas for data reporting.",
+    "shortDescription": "Deep dive into Pivot Tables, VLOOKUP, and advanced formulas for data reporting.",
+    "longDescription": "Take your data analysis skills to an expert level. This course covers powerful Excel features vital for business intelligence: mastering **Pivot Tables** for aggregation, complex nesting of functions, conditional formatting rules, data validation, and building interactive dashboards. Prerequisite: strong foundational knowledge of Excel.",
     "image": "https://i.postimg.cc/1zLrVqnd/excel.jpg",
     "category": "Technology"
   },
@@ -91,7 +98,8 @@
     "price": 75,
     "rating": 4.7,
     "slotsAvailable": 5,
-    "description": "Overcome fear and deliver impactful presentations with confidence.",
+    "shortDescription": "Overcome fear and deliver impactful presentations with confidence.",
+    "longDescription": "Build charisma and command attention in any setting. This class focuses on structuring persuasive arguments, developing strong stage presence, using vocal variety to engage an audience, and mastering techniques to manage public speaking anxiety. Includes practical exercises and personalized feedback to dramatically improve your communication skills.",
     "image": "https://i.postimg.cc/wBh7Fyb7/public-speaking.jpg",
     "category": "Business & Career"
   },
@@ -103,7 +111,8 @@
     "price": 30,
     "rating": 4.6,
     "slotsAvailable": 4,
-    "description": "An introduction to the ancient art of Japanese brush writing.",
+    "shortDescription": "An introduction to the ancient art of Japanese brush writing.",
+    "longDescription": "Explore the meditative art of **Shodo**. You will learn the correct grip, posture, and movement necessary to create beautiful characters (*Kanji* and *Kana*). The course covers basic strokes, composition, and the philosophy behind this traditional Japanese art form, using the four treasures of the study: brush, ink, inkstone, and paper.",
     "image": "https://i.postimg.cc/G2X3SkFX/Japanese-Calligraphy.jpg",
     "category": "Arts"
   },
@@ -115,7 +124,8 @@
     "price": 55,
     "rating": 4.5,
     "slotsAvailable": 3,
-    "description": "Build your first website with foundational knowledge of HTML and CSS.",
+    "shortDescription": "Build your first website with foundational knowledge of HTML and CSS.",
+    "longDescription": "Get started on your web development journey. This introductory course teaches you the fundamental languages of the web: **HTML** for structure and **CSS** for styling. You will learn to create and link web pages, format text, insert images, and apply modern layout techniques (like Flexbox or Grid) to build a fully functional, static portfolio website.",
     "image": "https://i.postimg.cc/hjZg0KnH/Introduction-to-Web-Development.png",
     "category": "Technology"
   }

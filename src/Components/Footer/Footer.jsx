@@ -1,40 +1,49 @@
-import React from 'react';
-import logo from '../../assets/logo.jpg'
+import React from "react";
+import logo from "../../assets/logo.jpg";
+import { Link } from "react-router";
+import { IoIosInformationCircle } from "react-icons/io";
+import { FaPhoneAlt } from "react-icons/fa";
+import { MdOutlineSupportAgent } from "react-icons/md";
 const Footer = () => {
-    return (
-        <footer className="footer sm:footer-horizontal bg-black text-white p-10  ">
-  <aside>
-    <figure>
-        <img src={logo} alt="" className='h-20 w-20 rounded-full'/>
-    </figure>
-    <p>
-      SkillSwap
-      <br />
-      Providing reliable courses since 1992
-    </p>
-  </aside>
-  <nav>
-    <h6 className="footer-title">Services</h6>
-    <a className="link link-hover">Branding</a>
-    <a className="link link-hover">Design</a>
-    <a className="link link-hover">Marketing</a>
-    <a className="link link-hover">Advertisement</a>
-  </nav>
-  <nav>
-    <h6 className="footer-title">Company</h6>
-    <a className="link link-hover">About us</a>
-    <a className="link link-hover">Contact</a>
-    <a className="link link-hover">Jobs</a>
-    <a className="link link-hover">Press kit</a>
-  </nav>
-  <nav>
-    <h6 className="footer-title">Legal</h6>
-    <a className="link link-hover">Terms of use</a>
-    <a className="link link-hover">Privacy policy</a>
-    <a className="link link-hover">Cookie policy</a>
-  </nav>
-</footer>
-    );
+  return (
+    <footer className=" max-w-8xl text-center  mx-auto ml-5 mr-5 bg-black text-primary-content p-10">
+      <aside>
+        <div>
+          <div className="flex justify-center">
+            <img src={logo} alt="" className="h-20 w-20 rounded-full" />
+          </div>
+          <p className="font-bold mb-5">
+            SkillSwap
+            <br />
+            Providing reliable courses since 1992
+          </p>
+          <div className="flex justify-center">
+            <div>
+              <Link to="/about-us" className="mr-5 flex flex-col justify-center items-center">
+                <IoIosInformationCircle />
+                <span>About Us</span>
+              </Link>
+            </div>
+            <div>
+              <Link to="/contact" className="mr-5 flex flex-col justify-center items-center">
+                <FaPhoneAlt />
+                <span>Contact</span>
+              </Link>
+            </div>
+            <div>
+              <Link to="/support" className="mr-5 flex flex-col justify-center items-center">
+                <MdOutlineSupportAgent />
+                <span>Support</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+        <p className="mt-10">
+          Copyright © {new Date().getFullYear()} - All right reserved
+        </p>
+      </aside>
+    </footer>
+  );
 };
 
 export default Footer;
