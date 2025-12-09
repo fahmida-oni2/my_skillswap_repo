@@ -23,4 +23,4 @@ Purpose: Making a friendly website for individuals to offer, learn, and trade sk
     "swiper": "^12.0.3",<br>
     "tailwindcss": "^4.1.15"
 
-Live URL:https://skillswap-a-learning-platform.netlify.app/
+Live URL:https:https://skiilswap-learning-platform.vercel.app/
