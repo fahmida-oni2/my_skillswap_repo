@@ -4,7 +4,7 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
-const firebaseConfig = {
+const FirebaseConfig = {
   apiKey:import.meta.env.VITE_apiKey ,
   authDomain:import.meta.env.VITE_authDomain,
   projectId:import.meta.env.VITE_projectId,
@@ -14,5 +14,5 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+const app = initializeApp(FirebaseConfig);
 export default app;
